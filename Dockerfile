@@ -10,7 +10,8 @@ COPY deno.lock .
 RUN deno install
 
 COPY server.ts .
+COPY metrics.ts .
 
-RUN deno cache server.ts
+RUN deno cache server.ts 
 
 CMD ["deno", "--allow-net", "--unstable-otel", "server.ts"]
