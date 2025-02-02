@@ -1,0 +1,12 @@
+
+services:
+  deno:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - "8000:8000"
+    environment:
+      OTEL_DENO: true
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://lgtm:4318
+      OTEL_SERVICE_NAME: deno-api
